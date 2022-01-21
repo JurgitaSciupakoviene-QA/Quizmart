@@ -1,16 +1,16 @@
-import * as LoginPage from "../pageObjects/login.page"
+import * as loginPage from "../pageObjects/login.page"
+import * as defaultPage from "../pageObjects/defaultPage"
 
-describe('Login application', () => {
-    it('should login with valid credentials', async () => {
-        await LoginPage.openUrl();
-        await browser.pause(5000);
+describe('Test for login with email', function () {
+    this.timeout(0)
 
-    });
-    it('Login with email', async () => {
-        await LoginPage.openUrl();
-        await browser.pause(5000);
+    it('Clicks sign in with email button', async function () {
+       await defaultPage.openLandingPage()
+     // await loginPage.openUrl();  
+      await loginPage.clickSignInWithEmailButton();
+        await browser.pause(10000);
+    })
 
-    });
-});
+}) 
 
 
