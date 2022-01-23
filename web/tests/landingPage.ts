@@ -2,9 +2,7 @@ import * as loginPage from "../pageObjects/login.page"
 import * as defaultPage from "../pageObjects/defaultPage"
 import {expect} from 'chai'
 
-const email ='Tekstas'
-
-describe('Test for login with email', function () {
+describe('Test for landing page funcionality', function () {
     this.timeout(0)
 
     it('Clicks sign in with email button', async function () {
@@ -12,13 +10,8 @@ describe('Test for login with email', function () {
        await browser.maximizeWindow();
        await loginPage.clickSignInWithEmailButton();
        await loginPage.waitForSignInForm()
-       expect(await loginPage.getSignInHeaderText()).equals("Sign in")
-       await browser.pause(10000);
-       await loginPage.typeEmail(email);
-       await browser.pause(10000);
-
+       expect(await loginPage.getSignInHeaderText()).equals("Sign in");
+       await browser.closeWindow()
     })
 
 }) 
-
-
