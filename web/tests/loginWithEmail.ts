@@ -14,7 +14,7 @@ describe('Test for login with email', function () {
        await loginPage.waitForSignInForm()
        expect(await loginPage.getSignInHeaderText()).equals("Sign in")
        await browser.pause(10000);
-       await loginPage.typeEmail(email);
+       await loginPage.typeEmailAndLoseFocus(email)
        await browser.pause(10000);
 
     })
