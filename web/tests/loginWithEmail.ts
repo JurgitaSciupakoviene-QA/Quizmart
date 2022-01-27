@@ -3,23 +3,20 @@ import * as defaultPage from "../pageObjects/defaultPage"
 import {expect} from 'chai'
 
 const email ='Tekstas'
+const pass = '123'
 
 describe('Test for login with email', function () {
     this.timeout(0)
 
-    // beforeEach(function(){
-    //     signInPage.openSignIn()
-    // })
+     beforeEach(function(){
+         defaultPage.openSignInPage()
+     })
 
     it('Clicks sign in with email button', async function () {
-       await defaultPage.openLandingPage();
-       await browser.maximizeWindow();
-       await loginPage.clickSignInWithEmailButton();
-       await loginPage.waitForSignInForm()
-       expect(await loginPage.getSignInHeaderText()).equals("Sign in")
-       await browser.pause(10000);
-       await loginPage.typeEmail(email);
-       await browser.pause(10000);
+     /// await defaultPage.openSignInPage();
+       //await browser.pause(10000);
+       await loginPage.typeEmailAndLoseFocus(email, pass);
+       await browser.pause(5000);
 
     })
 

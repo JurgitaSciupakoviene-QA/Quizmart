@@ -1,5 +1,6 @@
 import * as defaultPage from "./defaultPage"
 
+//LOCATORS
 const signInEmailButton = "//button[text()='Sign in with email']"
 const signInHeader ="h1"
 const signInForm = "main > div > form"
@@ -12,6 +13,14 @@ const loginFormValidation = '(//form//h3//)[1]'
 const forgotPasswordLink ='//a[@href="/reset-password"]'
 const createAccountLink ='//a[@href="/sign-up"]'
 
+//GETS
+
+export async function getSignInHeaderText():Promise<string>{
+    return (await defaultPage.getElementTextByLocator(signInHeader))
+}
+
+//ACTIONS
+
 export async function clickSignInWithEmailButton(): Promise<void> {
     await defaultPage.clickByLocator(signInEmailButton)
 }
@@ -21,14 +30,10 @@ export async function typeEmail (email: string):Promise<void>{
 
 }
 
-export async function getSignInHeaderText():Promise<string>{
-    return (await defaultPage.getElementTextByLocator(signInHeader))
-}
-
-export async function typeEmailAndLoseFocus(email: string): Promise<void> {
-    await defaultPage.clickByLocator(emailInput)
+export async function typeEmailAndLoseFocus(email: string, pass: string): Promise<void> {
     await defaultPage.appendTextByLocator(email, emailInput)
     await defaultPage.clickByLocator(passInput)
+    await defaultPage.appendTextByLocator(pass, passInput)
 }
 
 export async function waitForSignInForm(): Promise<void> {
