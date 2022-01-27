@@ -7,6 +7,10 @@ const email ='Tekstas'
 describe('Test for login with email', function () {
     this.timeout(0)
 
+    // beforeEach(function(){
+    //     signInPage.openSignIn()
+    // })
+
     it('Clicks sign in with email button', async function () {
        await defaultPage.openLandingPage();
        await browser.maximizeWindow();
