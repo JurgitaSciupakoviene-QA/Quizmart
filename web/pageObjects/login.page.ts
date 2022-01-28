@@ -3,7 +3,7 @@ import * as defaultPage from "./defaultPage"
 //LOCATORS
 const signInEmailButton = "//button[text()='Sign in with email']"
 const signInHeader ="h1"
-const signInForm = "main > div > form"
+const signInForm = '//main//form//button'
 const emailInput = '//form//input[@name="email"]'
 const passInput ='//input[@name="password"]'
 const emailValidationMessage ='//div[./input[@name="email"]]//h3'
@@ -18,11 +18,18 @@ const createAccountLink ='//a[@href="/sign-up"]'
 export async function getSignInHeaderText():Promise<string>{
     return (await defaultPage.getElementTextByLocator(signInHeader))
 }
+export async function getPasswordValidationText():Promise<string>{
+    return (await defaultPage.getElementTextByLocator(passValidationMessage))
+}
 
 //ACTIONS
 
 export async function clickSignInWithEmailButton(): Promise<void> {
     await defaultPage.clickByLocator(signInEmailButton)
+}
+
+export async function clickSignInButton(): Promise<void> {
+    await defaultPage.clickByLocator(signInButton)
 }
 
 export async function typeEmail (email: string):Promise<void>{

@@ -1,9 +1,11 @@
-import * as loginPage from "../pageObjects/login.page"
-import * as defaultPage from "../pageObjects/defaultPage"
+import * as loginPage from '../pageObjects/login.page'
+import * as defaultPage from '../pageObjects/defaultPage'
+import * as discoverPage from '../pageObjects/discoverPage'
 import {expect} from 'chai'
+import * as credentials from '../utils/userCredentials'
+import * as headers from '../utils/headers'
+import * as validationMessages from '../utils/validationMessages'
 
-const email ='Tekstas'
-const pass = '123'
 
 describe('Test for login with email', function () {
     this.timeout(0)
@@ -12,13 +14,21 @@ describe('Test for login with email', function () {
          defaultPage.openSignInPage()
      })
 
-    it('Clicks sign in with email button', async function () {
-     /// await defaultPage.openSignInPage();
-       //await browser.pause(10000);
-       await loginPage.typeEmailAndLoseFocus(email, pass);
-       await browser.pause(5000);
+    it('Successful sign in with email with corretc credentials', async function () {
+       await loginPage.typeEmailAndLoseFocus(credentials.userCorrect.email, credentials.userCorrect.password);
+       await loginPage.clickSignInButton();
+       await discoverPage.waitForDiscoverForm(3000);
+       expect(await discoverPage.getDiscoverPageHeaderText()).equals(headers.Headers.discoverPage);
+
 
     })
+    it.only('Sign in with incorrect password', async function () {
+        await loginPage.typeEmailAndLoseFocus(credentials.userCorrect.email, credentials.userTooShortPass.password);
+        await loginPage.clickSignInButton();
+        expect(await loginPage.getPasswordValidationText()).equals(validationMessages.ValidationMessages.tooShortLengthError);
+ 
+ 
+     })
 
 }) 
 
