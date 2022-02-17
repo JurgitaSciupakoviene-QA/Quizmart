@@ -27,8 +27,7 @@ export async function openLandingPage(): Promise<void> {
 
 export async function openSignInPage(): Promise<void> {
     await browser.url('https://staging.quizmart.io/sign-in#');
-    await browser.maximizeWindow()
-} 
+  } 
 //OTHER
 let defaultTimeout: number = 2000
 

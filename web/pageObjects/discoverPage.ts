@@ -1,4 +1,4 @@
-import * as defaultPage from "./defaultPage"
+import * as defaultPage from './defaultPage'
 
 //LOCATORS
 
