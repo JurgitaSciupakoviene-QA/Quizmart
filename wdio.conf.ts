@@ -48,7 +48,8 @@ export const config: WebdriverIO.Config = {
     // will be called from there.
     //
     specs: [
-        './web/tests/**/*.ts'
+       // './web/tests/**/*.ts'
+       './web/tests/loginWithEmail.ts'
     ],
     // Patterns to exclude.
     exclude: [
@@ -70,7 +71,7 @@ export const config: WebdriverIO.Config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
-    maxInstances: 10,
+    maxInstances: 1,
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
@@ -84,6 +85,13 @@ export const config: WebdriverIO.Config = {
         maxInstances: 5,
         //
         browserName: 'chrome',
+        'goog:chromeOptions':{
+            args: [
+                '--window-size=1920,1440',
+            //    '--headless'
+            ]
+
+        },
         acceptInsecureCerts: true
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
