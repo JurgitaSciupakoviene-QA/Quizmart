@@ -1,16 +1,11 @@
 export const userCorrect= {
 email: "jurgita.sciupakoviene@telesoftas.com",
-password: "Test123"
+password: "test123"
 }
-export const userInvalidPass= {
-    email: "jurgita.sciupakoviene@telesoftas.com",
+export const userInvalidEmailAndPass= {
+    email: "jurgita.sciupakoviene1@telesoftas.com",
     password: "Testtest"
     }
-export const userInvalidEmail= {
-    email: "jurgita.sciupakovienetelesoftas.com",
-    password: "Testtest"
-    }
-export const userEmpty= {
-    email: "",
-    password: ""
-    }
+export const userTooLongPass='shfiejfhdiewfidpijrgjwpigjwrphgpwgpwfj6568w4gwgregwgiweugwegwegweg664848***535345$%^ddfgdfgdghdjetdkf'
+export const userTooShortPass='Testt'
+export const invalidEmail = ['test*-+=1234567890-','test@test', 'test.com', '@test.com', 'test*-+=1234567890-@email@com']
